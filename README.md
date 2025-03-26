@@ -35,19 +35,20 @@ DB_HOST=db
 DB_NAME=leadsdb
 DB_USER=postgres
 DB_PASSWORD=postgres
-API_BASE_URL=http://localhost:5000
+API_BASE_URL=http://localhost:5015
 ```
 
 ### **3️⃣ Suba os containers com Docker Compose**
 
 ```sh
 docker-compose up --build
+COMPOSE_BAKE=true docker-compose up --build
 ```
 
 Isso iniciará os serviços:
 
 - 🖥️ **Frontend**: Disponível em [http://localhost](http://localhost)
-- ⚙️ **Backend**: Disponível em [http://localhost:5000](http://localhost:5000)
+- ⚙️ **Backend**: Disponível em [http://localhost:5015](http://localhost:5015)
 - 🗄️ **Banco de Dados**: PostgreSQL rodando na porta **5432**
 
 ---
@@ -90,11 +91,11 @@ Isso iniciará os serviços:
 Após iniciar os containers, você pode testar a API com:
 
 ```sh
-curl http://localhost:5000/api/leads
+curl http://localhost:5015/api/leads
 ```
 
 Ou acessar o **Swagger UI** em:
-📌 [http://localhost:5000/swagger](http://localhost:5000/swagger)
+📌 [http://localhost:5015/swagger](http://localhost:5015/swagger)
 
 ---
 

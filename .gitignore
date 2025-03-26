@@ -1,0 +1,31 @@
+# Arquivos e diretórios do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de log
+*.log
+logs/
+*.out
+
+# Diretórios de build e publicação
+bin/
+obj/
+out/
+
+# Configurações do Visual Studio Code
+.vscode/
+
+# Arquivos de dependências e pacotes
+node_modules/
+*.npm
+*.nuget
+
+# Arquivos de configuração sensíveis
+*.env
+appsettings.json
+appsettings.Development.json
+
+# Arquivos gerados pelo Docker
+docker-compose.override.yml
+*.pid
+*.tar

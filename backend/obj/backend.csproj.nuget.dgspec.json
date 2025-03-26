@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nakalissi/Sites/mrv/backend/backend.csproj": {}
+    "C:\\Users\\Daniel\\Projetos\\mrv\\backend\\backend.csproj": {}
   },
   "projects": {
-    "/Users/nakalissi/Sites/mrv/backend/backend.csproj": {
+    "C:\\Users\\Daniel\\Projetos\\mrv\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nakalissi/Sites/mrv/backend/backend.csproj",
+        "projectUniqueName": "C:\\Users\\Daniel\\Projetos\\mrv\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "/Users/nakalissi/Sites/mrv/backend/backend.csproj",
-        "packagesPath": "/Users/nakalissi/.nuget/packages/",
-        "outputPath": "/Users/nakalissi/Sites/mrv/backend/obj/",
+        "projectPath": "C:\\Users\\Daniel\\Projetos\\mrv\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Daniel\\Projetos\\mrv\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nakalissi/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -44,17 +44,39 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
-            "Microsoft.DotNet.ILCompiler": {
-              "suppressParent": "All",
+            "MediatR": {
               "target": "Package",
-              "version": "[9.0.3, )",
-              "autoReferenced": true
+              "version": "[12.4.1, )"
             },
-            "Microsoft.NET.ILLink.Tasks": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.3, )",
-              "autoReferenced": true
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -68,12 +90,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "runtime.osx-x64.Microsoft.DotNet.ILCompiler",
-              "version": "[9.0.3, 9.0.3]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -82,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
