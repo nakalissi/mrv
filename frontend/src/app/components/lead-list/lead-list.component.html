@@ -1,0 +1,9 @@
+<h2>Leads Invited</h2>
+<div *ngFor="let lead of invitedLeads">
+  <app-lead-card [lead]="lead"></app-lead-card>
+</div>
+
+<h2>Leads Accepted</h2>
+<div *ngFor="let lead of acceptedLeads">
+  <app-lead-card [lead]="lead"></app-lead-card>
+</div>
