@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LeadListComponent } from './components/lead-list/lead-list.component';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { CommonModule } from '@angular/common';
 
 @Component({

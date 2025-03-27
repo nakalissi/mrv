@@ -1,5 +1,5 @@
 <mat-tab-group class="mat-tab-group">
-  <mat-spinner *ngIf="loading" size="small"></mat-spinner>
+  <div *ngIf="loading">Loading...</div>
   <mat-tab label="Invited">
     <div *ngIf="invitedLeads.length === 0" class="no-leads">
       <p>No leads found</p>

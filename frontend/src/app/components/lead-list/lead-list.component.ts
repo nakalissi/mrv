@@ -4,7 +4,6 @@ import { LeadService } from '../../services/lead.service';
 import { LeadCardComponent } from '../lead-card/lead-card.component';
 import { CommonModule } from '@angular/common';
 import {MatTabsModule} from '@angular/material/tabs';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-lead-list',
@@ -14,7 +13,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     CommonModule,
     MatTabsModule,
     LeadCardComponent,
-    MatProgressSpinnerModule,
   ]
 })
 export class LeadListComponent implements OnInit {
@@ -25,8 +23,6 @@ export class LeadListComponent implements OnInit {
   constructor(private leadService: LeadService) {}
 
   acceptLead(leadId: number) {
-    console.log('acceptLead', leadId);
-    
     this.leadService.acceptLead(leadId).subscribe(() => {
       this.loadLeads();
     });
