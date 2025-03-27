@@ -9,7 +9,6 @@ public class LeadsController : ControllerBase
     private readonly AppDbContext _context;
     private readonly ILogger<LeadsController> _logger;
 
-    // Constructor injection for AppDbContext and ILogger
     public LeadsController(AppDbContext context, ILogger<LeadsController> logger)
     {
         _context = context;
@@ -24,7 +23,7 @@ public class LeadsController : ControllerBase
 
         try
         {
-            lead.DateCreated = DateTime.UtcNow; // Define a data de criação
+            lead.DateCreated = DateTime.UtcNow;
             _context.Leads.Add(lead);
             await _context.SaveChangesAsync();
 
@@ -76,7 +75,7 @@ public class LeadsController : ControllerBase
         }
 
         lead.Status = "accepted";
-        if (lead.Price > 500)
+        if (lead.Price > 500) // If price is higher than 500, apply a 10% discount
         {
             lead.Price *= 0.9m;
             _logger.LogInformation("Applied discount to lead with ID {Id}. New price: {Price}.", id, lead.Price);
