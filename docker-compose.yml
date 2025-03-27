@@ -19,11 +19,11 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     environment:
-      - DB_HOST=${DB_HOST}
-      - DB_NAME=${DB_NAME}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - API_BASE_URL=${API_BASE_URL}
+      - DB_HOST=db
+      - DB_NAME=leadsdb
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - API_BASE_URL=http://localhost:5015
       - ASPNETCORE_URLS=http://+:5015
       - ASPNETCORE_HTTP_PORTS=5015
     ports:
@@ -38,7 +38,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     environment:
-      - API_BASE_URL=${API_BASE_URL}
+      - API_BASE_URL=http://localhost:5015
     ports:
       - "4200:80"
     depends_on:

@@ -16,6 +16,37 @@ public class LeadsController : ControllerBase
         _logger = logger;
     }
 
+    [HttpPost]
+    public async Task<IActionResult> AddLead([FromBody] Lead lead)
+    {
+        if (lead == null)
+            return BadRequest("Lead inválido.");
+
+        try
+        {
+            lead.DateCreated = DateTime.UtcNow; // Define a data de criação
+            _context.Leads.Add(lead);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetLeadById), new { id = lead.Id }, lead);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Erro ao salvar lead: {ex.Message}");
+        }
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetLeadById(int id)
+    {
+        var lead = await _context.Leads.FindAsync(id);
+
+        if (lead == null)
+            return NotFound("Lead não encontrado.");
+
+        return Ok(lead);
+    }
+
     [HttpGet("invited")]
     public async Task<IActionResult> GetInvitedLeads()
     {
@@ -51,6 +82,7 @@ public class LeadsController : ControllerBase
             _logger.LogInformation("Applied discount to lead with ID {Id}. New price: {Price}.", id, lead.Price);
         }
 
+        _logger.LogInformation("Send e-mail to email {ContactEmail}. ", lead.ContactEmail);
         await _context.SaveChangesAsync();
         _logger.LogInformation("Lead with ID {Id} accepted.", id);
         return Ok(lead);
