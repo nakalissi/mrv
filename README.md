@@ -1,11 +1,11 @@
 ````markdown
-# 🚀 Full Stack Application - Angular & .NET Core
+# Full Stack Application - Angular & .NET Core
 
 Este projeto é uma aplicação **Full Stack** utilizando **Angular** no frontend, **.NET Core** no backend e **PostgreSQL** como banco de dados. A aplicação está completamente **dockerizada** para facilitar o deploy e execução local.
 
 ---
 
-## **📌 Pré-requisitos**
+## Pré-requisitos
 
 Antes de rodar a aplicação, certifique-se de ter instalado:
 
@@ -14,11 +14,11 @@ Antes de rodar a aplicação, certifique-se de ter instalado:
 
 ---
 
-## **📌 Como Rodar a Aplicação**
+## Como Rodar a Aplicação
 
 A aplicação pode ser executada utilizando **Docker Compose**, que configurará automaticamente o **frontend, backend e banco de dados**.
 
-### **1️⃣ Clone o repositório**
+### Clone o repositório
 
 ```sh
 git clone https://github.com/nakalissi/mrv.git
@@ -26,7 +26,7 @@ cd mrv
 ```
 ````
 
-### **2️⃣ Configure as Variáveis de Ambiente**
+### Configure as Variáveis de Ambiente
 
 Crie um arquivo `.env` na raiz do projeto e adicione:
 
@@ -38,22 +38,21 @@ DB_PASSWORD=postgres
 API_BASE_URL=http://localhost:5015
 ```
 
-### **3️⃣ Suba os containers com Docker Compose**
+### Suba os containers com Docker Compose
 
 ```sh
 docker-compose up --build
-COMPOSE_BAKE=true docker-compose up --build
 ```
 
 Isso iniciará os serviços:
 
-- 🖥️ **Frontend**: Disponível em [http://localhost](http://localhost)
-- ⚙️ **Backend**: Disponível em [http://localhost:5015](http://localhost:5015)
-- 🗄️ **Banco de Dados**: PostgreSQL rodando na porta **5432**
+- **Frontend**: Disponível em [http://localhost:4200](http://localhost:4200)
+- **Backend**: Disponível em [http://localhost:5015](http://localhost:5015)
+- **Banco de Dados**: PostgreSQL rodando na porta **5432**
 
 ---
 
-## **📌 Estrutura do Projeto**
+## Estrutura do Projeto
 
 ```
 /fullstack-app
@@ -66,27 +65,27 @@ Isso iniciará os serviços:
 
 ---
 
-## **📌 Tecnologias Utilizadas**
+## Tecnologias Utilizadas
 
-### 🖥️ **Frontend**
+### **Frontend**
 
-- **Angular** 🚀
+- **Angular**
 - **TypeScript**
 - **Nginx** para servir a aplicação
 
-### ⚙️ **Backend**
+### **Backend**
 
-- **.NET Core 8.0** ⚡
+- **.NET Core 9.0**
 - **Entity Framework Core**
 - **PostgreSQL**
 
-### 📦 **Infraestrutura**
+### **Infraestrutura**
 
-- **Docker & Docker Compose** 🐳
+- **Docker & Docker Compose**
 
 ---
 
-## **📌 Testando a Aplicação**
+## Testando a Aplicação
 
 Após iniciar os containers, você pode testar a API com:
 
@@ -95,11 +94,11 @@ curl http://localhost:5015/api/leads
 ```
 
 Ou acessar o **Swagger UI** em:
-📌 [http://localhost:5015/swagger](http://localhost:5015/swagger)
+[http://localhost:5015/swagger](http://localhost:5015/swagger)
 
 ---
 
-## **📌 Parando a Aplicação**
+## Parando a Aplicação
 
 Para parar os serviços, execute:
 
@@ -109,9 +108,9 @@ docker-compose down
 
 ---
 
-## **📌 Problemas Comuns e Soluções**
+## Problemas Comuns e Soluções
 
-### ❌ **Erro: "Porta já em uso"**
+### Erro: "Porta já em uso"
 
 🔹 Execute:
 
@@ -126,7 +125,7 @@ Então, tente rodar novamente:
 docker-compose up --build
 ```
 
-### ❌ **Erro: Arquivos não encontrados no contêiner**
+### Erro: Arquivos não encontrados no contêiner
 
 🔹 Tente reconstruir tudo:
 
