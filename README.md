@@ -1,135 +1,125 @@
-````markdown
-# Full Stack Application - Angular & .NET Core
+# 🏡 MRV - Sistema de Gestão de Leads
 
-Este projeto é uma aplicação **Full Stack** utilizando **Angular** no frontend, **.NET Core** no backend e **PostgreSQL** como banco de dados. A aplicação está completamente **dockerizada** para facilitar o deploy e execução local.
+Este projeto é uma aplicação backend para gestão de leads imobiliários, desenvolvida em **.NET 9**, com arquitetura RESTful e preparada para execução via Docker.
 
----
 
-## Pré-requisitos
 
-Antes de rodar a aplicação, certifique-se de ter instalado:
+## 📦 Tecnologias Utilizadas
 
-- [Docker](https://www.docker.com/get-started)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+- **.NET 9 (C#)** – Plataforma moderna para desenvolvimento backend
+- **Entity Framework Core** – ORM para acesso a banco de dados
+- **ASP.NET Web API** – Para exposição de endpoints REST
+- **Docker** – Containerização do backend para facilitar o deploy
+- **SQL Server** – Banco de dados relacional (via Docker Compose)
 
----
 
-## Como Rodar a Aplicação
 
-A aplicação pode ser executada utilizando **Docker Compose**, que configurará automaticamente o **frontend, backend e banco de dados**.
+## 📁 Estrutura do Projeto
 
-### Clone o repositório
+```
+mrv/
+├── mrv.sln                         # Solution file (.NET)
+├── docker-compose.yml             # Orquestração do backend + banco
+├── api.cs                         # Arquivo de rota API (possível gerador?)
+├── .env                           # Variáveis de ambiente
+├── backend/
+│   ├── backend.csproj             # Projeto principal ASP.NET
+│   ├── Program.cs                 # Inicialização da aplicação
+│   ├── appsettings.json           # Configurações gerais
+│   ├── appsettings.Development.json
+│   ├── Controllers/
+│   │   └── LeadsController.cs     # Endpoint principal da API
+│   ├── Data/
+│   │   └── AppDbContext.cs        # Contexto do banco via EF Core
+│   ├── Model/
+│   │   └── Lead.cs                # Modelo de dados (entidade Lead)
+│   └── Properties/
+│       └── launchSettings.json    # Configurações de execução local
+```
 
-```sh
+
+
+## 🚀 Executando o Projeto
+
+### Requisitos
+
+- Docker e Docker Compose instalados
+- .NET 9 SDK (para rodar sem Docker)
+
+### Passos
+
+1. Clone o repositório:
+
+```bash
 git clone https://github.com/nakalissi/mrv.git
 cd mrv
 ```
-````
 
-### Configure as Variáveis de Ambiente
+2. Suba os containers:
 
-Crie um arquivo `.env` na raiz do projeto e adicione:
-
-```ini
-DB_HOST=db
-DB_NAME=leadsdb
-DB_USER=postgres
-DB_PASSWORD=postgres
-API_BASE_URL=http://localhost:5015
-```
-
-### Suba os containers com Docker Compose
-
-```sh
+```bash
 docker-compose up --build
 ```
 
-Isso iniciará os serviços:
+A aplicação estará acessível em `http://localhost:5000`.
 
-- **Frontend**: Disponível em [http://localhost:4200](http://localhost:4200)
-- **Backend**: Disponível em [http://localhost:5015](http://localhost:5015)
-- **Banco de Dados**: PostgreSQL rodando na porta **5432**
 
----
 
-## Estrutura do Projeto
+## 🔄 Endpoints disponíveis
 
-```
-/fullstack-app
-│── /backend        # Código da API .NET Core
-│── /frontend       # Código do Frontend Angular
-│── /db             # Scripts SQL para PostgreSQL
-│── docker-compose.yml  # Configuração Docker
-│── README.md       # Instruções do projeto
-```
+| Método | Rota               | Descrição                   |
+|--------|--------------------|-----------------------------|
+| GET    | /api/leads         | Lista todos os leads        |
+| POST   | /api/leads         | Cria um novo lead           |
+| PUT    | /api/leads/{id}    | Atualiza um lead existente  |
+| DELETE | /api/leads/{id}    | Remove um lead              |
 
----
 
-## Tecnologias Utilizadas
 
-### **Frontend**
+## 🧪 Testando a API
 
-- **Angular**
-- **TypeScript**
-- **Nginx** para servir a aplicação
+Você pode utilizar ferramentas como:
 
-### **Backend**
+- [Postman](https://www.postman.com/)
+- [Insomnia](https://insomnia.rest/)
+- Ou diretamente via `curl`:
 
-- **.NET Core 9.0**
-- **Entity Framework Core**
-- **PostgreSQL**
-
-### **Infraestrutura**
-
-- **Docker & Docker Compose**
-
----
-
-## Testando a Aplicação
-
-Após iniciar os containers, você pode testar a API com:
-
-```sh
-curl http://localhost:5015/api/leads
+```bash
+curl http://localhost:5000/api/leads
 ```
 
-Ou acessar o **Swagger UI** em:
-[http://localhost:5015/swagger](http://localhost:5015/swagger)
 
----
 
-## Parando a Aplicação
+## ⚙️ Configuração via .env
 
-Para parar os serviços, execute:
+O projeto suporta variáveis de ambiente para facilitar a configuração de porta, banco de dados e ambiente. Exemplo de `.env`:
 
-```sh
-docker-compose down
+```
+ASPNETCORE_ENVIRONMENT=Development
+DOTNET_RUNNING_IN_CONTAINER=true
 ```
 
----
 
-## Problemas Comuns e Soluções
 
-### Erro: "Porta já em uso"
+## 🛠️ Melhorias Futuras
 
-🔹 Execute:
+- Autenticação via JWT
+- Validações robustas com FluentValidation
+- Integração com sistemas de CRM
+- Cobertura de testes com xUnit ou NUnit
 
-```sh
-docker ps  # Verifique quais containers estão rodando
-docker stop <container_id>  # Pare os containers em conflito
-```
 
-Então, tente rodar novamente:
 
-```sh
-docker-compose up --build
-```
+## 📜 Licença
 
-### Erro: Arquivos não encontrados no contêiner
+Este projeto é distribuído sob a licença **MIT**. Veja o arquivo `LICENSE` para mais informações.
 
-🔹 Tente reconstruir tudo:
 
-```sh
-docker-compose down --volumes
-docker-compose up --build
-```
+
+## 👤 Autor
+
+Desenvolvido por [Daniel Calissi Nakatate](https://github.com/nakalissi)
+
+
+
+> MRV é um projeto didático ou de automação interna para gestão de leads imobiliários. Não é afiliado oficialmente à construtora MRV Engenharia.
